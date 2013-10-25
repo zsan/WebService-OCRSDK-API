@@ -1,0 +1,29 @@
+---
+abstract: 'Perl interface to the ABBYY Cloud OCR SDK'
+author:
+  - 'Zakarias Santanu <zaksantanu@gmail.com>'
+build_requires:
+  Data::OpenStruct::Deep: 0
+  LWP::UserAgent: 0
+  Modern::Perl: 0
+  Moose: 0
+  MooseX::Privacy: 0
+  Test::More: 0
+  URI::Escape: 0
+  XML::Simple: 0
+configure_requires:
+  Module::Build: 0.40
+dynamic_config: 1
+generated_by: 'Module::Build version 0.4003, CPAN::Meta::Converter version 2.120530'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: WebService-OCRSDK-API
+provides:
+  WebService::OCRSDK::API:
+    file: lib/WebService/OCRSDK/API.pm
+    version: 0.01
+resources:
+  license: http://dev.perl.org/licenses/
+version: 0.01

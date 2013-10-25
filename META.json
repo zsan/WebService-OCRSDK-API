@@ -1,0 +1,48 @@
+{
+   "abstract" : "Perl interface to the ABBYY Cloud OCR SDK",
+   "author" : [
+      "Zakarias Santanu <zaksantanu@gmail.com>"
+   ],
+   "dynamic_config" : 1,
+   "generated_by" : "Module::Build version 0.4003, CPAN::Meta::Converter version 2.120530",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "WebService-OCRSDK-API",
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "Data::OpenStruct::Deep" : "0",
+            "LWP::UserAgent" : "0",
+            "Modern::Perl" : "0",
+            "Moose" : "0",
+            "MooseX::Privacy" : "0",
+            "Test::More" : "0",
+            "URI::Escape" : "0",
+            "XML::Simple" : "0"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "Module::Build" : "0.40"
+         }
+      }
+   },
+   "provides" : {
+      "WebService::OCRSDK::API" : {
+         "file" : "lib/WebService/OCRSDK/API.pm",
+         "version" : "0.01"
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "license" : [
+         "http://dev.perl.org/licenses/"
+      ]
+   },
+   "version" : "0.01"
+}
