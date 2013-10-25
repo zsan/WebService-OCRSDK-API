@@ -53,25 +53,45 @@ sub get_task_status {
 
 
 sub process_mrz {
-  my ($self, $param) = @_;
+  my ($self, $body_or_path, $param) = @_;
+
   
-  unless($param) {
+  unless ($body_or_path) {
     #set error
-    $self->set_error("please provide the path of image you want to upload");
+    $self->set_error("please set if you're going to pass content or path");
     return undef;
   }
 
-  unless(-e $param) {
-   $self->set_error("$param is not exists or not accessible");
-   return undef;
+  unless ($param) {
+    #set error
+    $self->set_error("please provide the path or content of image you want to upload");
+    return undef;
   }
 
-  my $res = $self->post(
-    $self->_private_host ."/processMRZ",
-    Content_Type => 'form-data',
-    Content => ['upload[file]' => [$param]],
-  );
+  my $res;
 
+  if ($body_or_path eq 'path') {
+    unless(-e $param) {
+     $self->set_error("$param is not exists or not accessible");
+     return undef;
+    }
+
+    $res = $self->post(
+      $self->_private_host ."/processMRZ",
+      Content_Type => 'form-data',
+      Content => ['upload[file]' => [$param]],
+    );
+
+  } elsif ($body_or_path eq 'body') {
+    
+    $res = $self->post(
+      $self->_private_host ."/processMRZ",
+      Content_Type => 'form-data',
+      Content => $param,
+    );
+  }
+
+  
   unless ($res->is_success) {
     $self->set_error($res->status_line);
     return undef;
